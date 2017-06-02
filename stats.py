@@ -4,7 +4,7 @@ import re
 
 def main():
     print("Stat analysis here")
-    print("Default layout is: \n Samples, Stdev, Mean, Max, Min, Median, Mode")
+    print("Default layout is: \n Samples, Stdev, Mean, Max, Min, Median")
     
     datafile = open("out.txt","r") #out.txt contains a single input from the user per line
     grid=datafile.read()
@@ -12,6 +12,8 @@ def main():
     grid = grid.split("\n") #grid is an array of lines
     print("Word length analysis")
     print(quickstat(analyseWordLength(grid)))
+    print("Line length analysis")
+    print(quickstat(analyseLineLength(grid)))
 
 def quickstat(data):
     arrOut = []
@@ -30,6 +32,13 @@ def analyseWordLength(raw):
         work = re.split("; |, |\\ |- |~",k)
         for l in work:
             arrOut.append(len(l))
+
+    return arrOut
+
+def analyseLineLength(raw):
+    arrOut=[]
+    for k in raw:
+        arrOut.append(len(k))
 
     return arrOut
 

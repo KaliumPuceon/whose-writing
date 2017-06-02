@@ -9,19 +9,22 @@ stor = stor.split("\n")
 w = open("out.txt","w")
 f.close()
 for k in stor:
+    clearstring = ""
     if matchme.search(k):
         trim = k[k.find(">")+2::]
-        #I need to clean out URL's so I'm gonna destroy any words
-        #starting with http or www or youtu.be
-        for l in trim.split(" "):
-            cleanarr = []
-            print(l)
-            if not matchurl.search(l):
-                cleanarr.insert(0,l)
         
-        trim = " ".join(cleanarr)
+        #I need to clean out URL's so I'm gonna destroy any words
+        #starting with http or www or youtu.be 
+        clearstring=""
+        
+        for l in trim.split(" "): 
+            
+            if not matchurl.search(l):
+                
+                clearstring = clearstring + " " + l
 
-        w.write(trim+"\n")
+        if not len(clearstring) == 0:
+            w.write(clearstring[1::] + "\n")
 
 w.close()
 print("done!")
