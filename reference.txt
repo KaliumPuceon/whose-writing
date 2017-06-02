@@ -1,0 +1,188 @@
+<relsqui> this transcription is weird because it's three minutes of people silently thinking and then everyone talking at once for thirty seconds
+<relsqui> at least five minutes of it shouldn't take long
+<Rob1992> what on earth is even your degree that you do stuff like that?
+<Rob1992> degree/diploma/useless bit of paper that gets used once to show "hey i did stuff in a school"
+<relsqui> applied linguistics
+<relsqui> :P
+<relsqui> the course is a seminar on the psycholinguistics of games
+<Rob1992> so profesionally unemplyed then? /s
+<relsqui> Rob1992: I mean, I have a job interview as a backend software engineer in two days
+<relsqui> ... three days. forgot what day it was
+<Rob1992> ...good job ya nitwit
+<SpicyLemon> Oooo! Backend software engineer? Check out SoFi. We're hiring like crazy.
+<relsqui> that said ... speech and hearing pathologist is a job, lexicographer is a job, translator is a job, esl teacher is a job, policy consultant ...
+<relsqui> applied linguistics has a shitload of applications, you just don't think about them because they don't affect you personally
+<relsqui> although if you've ever giggled at merriam-webster's twitter, thank an applied linguist
+<relsqui> SpicyLemon: what's it short for?
+<dysprog> relsqui: where are you? My company is looking for a guy in chicago. 
+<SpicyLemon> SoFi = Social Finance Inc.
+<relsqui> dysprog: neither a guy nor in chicago
+* relsqui reads
+<Kalium> relsqui: oh, speaking of linguistics (heh) do you think that a sentence diagram is a good start if I wanted to come up with a way to analyse sentence similarity?
+<Rob1992> it was implied sarcasticly, a friend of mine studies history so he himself (due to the vastly smaller pool of applications/offers) jokes that he's studying to become unemplyed
+<Kalium> I never learnt them in school because I am Not In America so I have no idea if they're useful or not
+<relsqui> man this website fails the "I can tell what you tangibly do from your front page" test big time
+<relsqui> Kalium: depends, for what purpose are you analyzing the similarity?
+<dysprog> I meant guy in a genderless sense. the first guy we are interviewing happens to be a women 
+<Kalium> relsqui: I want to make something that can tell if a given sentence is more or like a sentence I would say
+<relsqui> Kalium: also I don't think anyone in the states learns them any more either :P
+<Rob1992> relsqui: looks like a lot of "we save people money, through MAGIC"
+<Kalium> I was thinking that a sentence tree plus some kind of general purpose analytics like word use, word length, sentence length, adjective frequency, etc.
+<relsqui> Rob1992: I don't think it's about saving money so much as making social change, but again, nfi what actions they actually take
+<relsqui> Kalium: yeah that seems like a decent start. back up though, what's the actual overall goal?
+<Kalium> relsqui: something that can detect whether something is likely to be something I said
+<relsqui> SpicyLemon: doesn't seem to have anything relevant posted
+<relsqui> Kalium: oh, got it
+* Vorthon (~Vorthon@hide-8D933F91.dsl.bell.ca) has joined
+* lilmisschaos (lilmisscha@F4AAA835.36630C14.E2AD96FD.IP) has joined
+<rcombs> fun fact: in Super Mario 64, Mario cannot deliberately move into an area where there is no floor directly beneath him (those areas are referred to as "out of bounds")
+<relsqui> Kalium: vocabulary would be where I go first, if you can get a big enough sample of typical text (and of text from other sources that your possible sentence *could* be from)
+<Kalium> Or, well, anyone, assuming I get a large corpus of their writing. I just got introduced to the basics of machine learning during a guest lecture and I was like "I have a large amount of text that I wrote lying around"
+<rcombs> this is the reason for some of the more confusing "invisible walls" in the game
+<Rob1992> this genuinly looks like a very weird kind of financial management, and written down in such an airy way that i don't trust it
+<relsqui> Kalium: sentence structure also good but it's hard to measure for a bunch of reasons
+<rcombs> in some cases, there's not actually a wall there
+<nobody> speaking of linguistics, anyone else ever read The American Language by h l mencken?
+<Kalium> relsqui: yeah, I was trying to find a good way to quantify sentence layout. I feel like I'll need a lot of reading into Natural Language stuff
+<rcombs> there's just a geometry error that leads some area to be out of bounds, so the game stops moving Mario
+<relsqui> Kalium: basically, you can create the whole tree and compare the whole tree, but then you'll only get matches if it's identical
+* jellyf has quit (Ping timeout: 180 seconds)
+<relsqui> you can look at types of clauses, length of clauses, number of clauses, etc. but then the question becomes -- which ones are relevant?
+<asarkar> Kalium: The thing that comes to my mind is recurrent neural network, but I only know the basics of that
+<nobody> the 4th edition and its two equal sized supplements are an amazing thing
+<relsqui> you could answer that question with an appropriate statistical analysis, but I don't have the faintest idea how you'd do that
+<relsqui> there's probably a serious paper in it though :)
+<Rob1992> so basically manual text mining?
+<Kalium> asarkar: well, I wanted to try and implement this via machine learning, but I still need to decide how I quantise my data so they machine can make meaningful learnings
+<relsqui> which someone may also have written, in which case you could just read the conclusion
+<relsqui> Kalium: the other thing is that even determining the sentence structure programmatically is hard
+<Kalium> relsqui: yeah, I got a headache thinking about it
+<Kalium> especially english, ugh.
+<asarkar> Kalium: e.g. https://github.com/aditya1503/Siamese-LSTM
+<relsqui> Kalium: I mean, don't reinvent that wheel
+<relsqui> it's been done a bunch of times
+<relsqui> but how good any implementation is for your purpose depends on the body of text it was trained on
+<relsqui> I say this because I used a general-purpose english model to parse magic rules text and it's super bad at it, lol
+<Kalium> relsqui: yeah, first principles for this are probably really, really hard. I do want to fully understand how I am analysing my text, even if I don't make it all myself.
+* jellyf (jeffrey@hide-8A1946E5.nc.res.rr.com) has joined
+<Rob1992> apparently what we're doing this trimester is text mining on pubmed, although what we're really doing is looking if any of the words of a list of keywords exists in the abstract on an article to detirmine if it's relevant to lypoxygenase research
+<relsqui> yeah I mean, the state of the art in machine parsing natural language hasn't involved teaching grammar to the computer in a long time
+<Kalium> asarkar: that looks like something useful, I'll read over it
+* tnli has quit (Ping timeout: 180 seconds)
+<relsqui> it's a neural net that you feed hand-coded examples
+<Rob1992> so i'd call it barely text mining
+* tnli (tnli@hide-4B22E84E.fi) has joined
+<relsqui> Kalium: if you wanna play with an easily accessible example, though, check out Parsey McParseFace
+<Kalium> Hmm. I could also try locating common synonyms that I use, which might have some value, maybe?
+<relsqui> which is free and pretty well documented
+<Kalium> relsqui: that is an awful name
+<Kalium> I love it
+<Bucket> This is a sign of predilection.
+<relsqui> Kalium: oh, like which one you would personally choose among a set of synonyms? that's a good one
+<relsqui> Kalium: ikr
+* Abstraction has quit (Ping timeout: 180 seconds)
+<relsqui> Kalium: of course, then your problem is determining a set of synonyms ;)
+* Abstraction (Abstractio@hide-A931ABBC.srcf.societies.cam.ac.uk) has joined
+<Rob1992> relsqui: could be worse we're "text mining" (basically just stuffing any article that has keywords in it into a database as a link and relevating them to eachother based on multiple things) with python
+<Kalium> oh yeah, I'd have to have context awareness
+<relsqui> Kalium: not context necessarily, but semantics
+<relsqui> and semantics is harder than grammar *g*
+<relsqui> ... probably? they're hard differently
+<Kalium> Difficult in unique and interesting ways?
+<relsqui> Kalium: that said, we don't have to guess what metrics to use for this; author determination is a thing, I'm sure there's prior work
+<relsqui> poke around google scholar and see what people are doing :)
+<relsqui> and if it looks like it works, do that, but if not, try something else :P
+<relsqui> Kalium: well with semantics we're not even totally sure how to address the problem
+<relsqui> Kalium: we don't know what we know when we know the meaning of a word
+<relsqui> there's strong evidence of a network-type structure where activating one node ("tiger") activates to a lesser degree related nodes ("stripes")
+<nobody> i did it guys, i cleared my watch later playlist of all the music albums
+<Kalium> We're gonna accidentally an AI and it's going to kill us because we made it read facebook for three years
+<relsqui> because of priming effects
+<relsqui> so ... association matters ... but that's not just semantic, it includes phonetics
+<Rob1992> Kalium: nah, it'll kill itself because it cant handle human bullshit
+<relsqui> ("stripes" also primes "straw")
+<relsqui> and probably also "types" etc.
+<relsqui> nobody: did you watch them or did you just clear it? :P
+<relsqui> Rob1992: also, your text mining sounds neat
+<Kalium> I guess... I could try taking a plagiarism detection tool and go for the HIGHEST score?
+<relsqui> Kalium: hahahaha
+<relsqui> Kalium: that's pretty good, yeah'
+<relsqui> I've also seen "what author do you write the most like" tools
+<relsqui> that's the tech you want
+<relsqui> just applied to a different baseline
+<Kalium> I kinda want the reverse of that
+<Kalium> "rewrite this paper in the style of Mary Shelley"
+<nobody> well, most of the actual video was album covers or what not, i listened to some of all of them and sorted them into a couple big playlists of AWESOME MUSIC
+<relsqui> Kalium: nice
+<relsqui> Kalium: I have no idea where the state of the art for prose generation is at, but I want to
+<relsqui> afaik it's further behind either of syntactic parsing and semantic association
+<Kalium> relsqui: https://github.com/coding-robots/goiwl < found the "who do I write like" thing
+<relsqui> ah nice
+<Kalium> relsqui: I know glench made poetry autocomplete, which is not super related but really just fun as heck
+* relsqui digs around for a paper
+<Rob1992> relsqui: it has the potential to be stupidly easy and not special in any way. it just collects articles in such a way in a database that once you have a database of articles related to lypoxygenase and that don't involve cancer (amongst other things) you can search in said database using search phrases to filter. the actual reading of the article to see if it's actually relevant is still done by our client. which is the research lab sitting on 
+<Rob1992> the top floor of our college :p
+<Rob1992> wow, that's quite the sentance
+<relsqui> ha! I fed that site a recent paper I wrote and got Agatha Christie
+<Kalium> Hmm. When last did I write a large amount of text.
+<Kalium> Wait, I started writing a fanfic the other day.
+<Kalium> This is a terrible idea, brb.
+<relsqui> lol
+<relsqui> ikr
+<Rob1992> no, it's an awesome idea
+<Stereo> "dear robot, how do i make my fanfic sound more like the original author"
+<Rob1992> stuff it into a public research project and cause some confusions
+<relsqui> tried some fiction, still got agatha christie
+<relsqui> trying to think of anything I've done that would be markedly dissimilar
+<relsqui> but has a comparable length
+<relsqui> erm
+<Rob1992> i guess it looks for the way you structure sentances?
+<Kalium> right, that was in HTML so I just had to put it in a browser before I copied it
+<Kalium> uh, Anne Rice
+<relsqui> nice.
+<Kalium> that name sounds familiar but I have no idea why
+<relsqui> Christie is a funny pick for me because I'm not big on mystery novels but my *parents* both are
+<relsqui> Kalium: Interview with a Vampire
+<relsqui> the vampire?
+<Bucket> https://seemikedraw.files.wordpress.com/2007/08/vampire.jpg
+<relsqui> whichever
+<relsqui> Bucket: forget that
+<Bucket> Okay, relsqui, forgot that vampire <reply> https://seemikedraw.files.wordpress.com/2007/08/vampire.jpg
+<Kalium> relsqui: Hey, I heard that's pretty good.
+<relsqui> yeah I liked it
+<Kalium> man now I just want to take stuff my friends have written and shove it in there
+<relsqui> right?
+<relsqui> oh I thought of one more thing I could try
+<relsqui> ... but I've now closed the page which is probably just as well, I should go back to my transcript, heh
+<nobody> this is a pretty boss playlist, kinda a catchall of a lot of random awesome albums, and a few single songs mixed in https://www.youtube.com/playlist?list=PLatLxm_EHlharu9uuBVip19twRR6gjicr
+<nobody> there's a lot of... obscure or weirdtrendy stuff on it
+<relsqui> @_@ You've Been Sentenced is a lot harder to transcribe than Password
+<relsqui> which was, like, one word at a time with lots of gaps
+<relsqui> but if I do this one and write this paper then I don't have to do another one this quarter
+<relsqui> (and the next one is likely to be harder because we're moving into narrative games0
+<rcombs> hmm, I suppose that if I wasn't aware that I have open wounds in my mouth, spitting up this amount of blood in the shower would be pretty concerning
+<nobody> i put aside one of my The American Language 4th edition, i think i'm going to read the sections on slang, cant, and argot
+<relsqui> argh, this one has a lot of audience participation though, and idk what to do with that
+<Kalium> Alright, so I Write Like is a bayesian classifier
+<Kalium> which I guess is basically what I want anyways, so I can start there
+<rcombs> it's a pity most of this is going straight back into me; I have a prescription to bleed more
+<Kalium> rcombs: is an argot anything like an ergot?
+<nobody> the language of the dark
+* JoeyLemur sighs, wishes he knew why Steam maintenance happens Tuesday afternoons.
+<JoeyLemur> Scheduled maintenance, this is.
+<JoeyLemur> *that is
+<Kalium> flyingferret: the cloud
+<Bucket> butt to butt plus )*)<-->(*(
+<flyingferret> Found 7 perfect matches, 11 total. Be more specific, or use this: http://www.google.com/cse?cx=012652707207066138651%3Azudjtuwe28q&ie=UTF-8&q=the cloud&siteurl=xkcd.com/.
+<Kalium> flyingferret: a lot of caching
+<flyingferret> The Cloud: http://xkcd.com/908 (".... Hat Man: There's a lot of caching. [[A close-up of  ...")
+* zgrgr has quit (Ping timeout: 180 seconds)
+<nobody> basically an argot is a cant or secrect language used in certain groups
+* Rob1992 has quit (Ping timeout: 180 seconds)
+<Kalium> nobody: so, not anything like a fungus that grows on rye. Got it.
+<rcombs> Kalium: why am I supposed to know?
+<nobody> :)
+<nobody> don't you know everything?
+<nobody> you'se people are one of my favorite communities
+<nobody> <3 #xkcd
+<Bucket> <3 <3
